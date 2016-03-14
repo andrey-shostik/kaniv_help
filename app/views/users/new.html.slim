@@ -1,0 +1,29 @@
+= form_for @user, url: user_path, class: 'form-horizontal' do |form| 
+  .container
+    .col-sm-6
+      .form-horizontal
+        h1.header Форма Реєстрації
+
+        .form-group
+          = form.label "Пошта", class: 'col-sm-2 control-label'
+          .col-sm-10
+            = form.email_field :email, class: 'form-control', placeholder: 'Пошта'
+
+        .form-group
+          = form.label "Пароль", class: 'col-sm-2 control-label'
+          .col-sm-10
+            = form.email_field :password, class: 'form-control', placeholder: 'Пароль'
+
+        .form-group
+          = form.label "Ім'я", class: 'col-sm-2 control-label'
+          .col-sm-10
+            = form.email_field :first_name, class: 'form-control', placeholder: "Ім'я"
+
+        .form-group
+          = form.label "Фамілія", class: 'col-sm-2 control-label'
+          .col-sm-10
+            = form.email_field :last_name, class: 'form-control', placeholder: 'Фамілія'
+
+        .form-group
+          .col-sm-offset-2.col-sm-10
+            = form.submit 'Новий Користувач'
