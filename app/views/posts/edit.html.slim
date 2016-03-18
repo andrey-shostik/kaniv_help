@@ -1,0 +1,19 @@
+= form_for @post, class: 'form-horizontal' do |form| 
+  .container#post-container
+       .col-sm-6
+        .form-horizontal
+          h1.header Новий Пост
+
+          .form-group
+            = form.label "Заголовок", class: 'col-sm-2 control-label'
+            .col-sm-10
+              = form.text_field :title, class: 'form-control', placeholder: 'Заголовок'
+
+          .form-group
+            = form.label "Опис", class: 'col-sm-2 control-label'
+            .col-sm-10
+              = form.text_area :body, class: 'form-control', placeholder: 'Опис'
+
+          .form-group
+            .col-sm-offset-2.col-sm-10
+              = form.submit 'Редагувати'

@@ -1,0 +1,19 @@
+= form_for :user, url: session_path, class: 'form-horizontal' do |form| 
+  .container
+    .col-sm-6
+      .form-horizontal
+        h1.header Вхід
+
+        .form-group
+          = form.label "Пошта", class: 'col-sm-2 control-label'
+          .col-sm-10
+            = form.email_field :email, class: 'form-control', placeholder: 'Пошта'
+
+        .form-group
+          = form.label "Пароль", class: 'col-sm-2 control-label'
+          .col-sm-10
+            = form.password_field :password, class: 'form-control', placeholder: 'Пароль'
+
+        .form-group
+          .col-sm-offset-2.col-sm-10
+            = form.submit 'Вхід'

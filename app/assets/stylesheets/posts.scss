@@ -1,3 +1,31 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$grey:  #DADADA;
+$black: #363636;
+$green: #8BC34A;
+
+#post-container{
+  background: white;
+  border: 1px solid $grey;
+  border-radius: 4px;
+  margin-top: 40px;
+
+  padding-bottom: 30px;
+  padding-top: 30px;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.post-link{
+  &:hover{
+    color: $green;
+  }
+  color: #444;
+}
+
+.text-padding{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
