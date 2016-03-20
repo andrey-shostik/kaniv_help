@@ -14,6 +14,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'has_secure_token'
 gem 'slim-rails'
+# gem 'kaminari', '~> 0.16.3'
 
 group :development, :test do
   gem 'byebug'

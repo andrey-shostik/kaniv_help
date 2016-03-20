@@ -2,8 +2,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :show, :update, :destroy]
 
   def index
-    @posts = Post.all
-    #@posts = User.posts
+    @posts = Post.all#.page(params[:page])
+     #@posts = current_user.posts
   end
 
   def new
@@ -13,15 +13,18 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    #@post = current_user.new(post_params)
+    @post.user = current_user
+    #@post = current_user.posts.build(post_params)
     if @post.save
       redirect_to posts_path
     else
       render :new
+      flash.now[:error] = 'неуказаний  заголовок чи опис'
     end
   end
 
   def show
+    @created_time = @post.created_at.strftime("%m.%d.%Y")
   end
 
   def edit
@@ -41,11 +44,12 @@ class PostsController < ApplicationController
   end
 
   private
-  def post_params
-    params.require(:post).permit(:title, :body)
-  end
+    def post_params
+      params.require(:post).permit(:title, :body)
+    end
 
-  def set_post
-    @post = Post.find(params[:id])
-  end
+    def set_post
+      @post = Post.find(params[:id])
+       #@post = current_user.posts.find(params[:id])
+    end
 end

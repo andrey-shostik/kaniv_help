@@ -16,24 +16,107 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-input[type=submit] { @extend .btn; @extend .btn-default;}
 
-$green: #8BC34A;
+$green: #689F38;
 $grey:  #DADADA;
 $black: #363636;
 
-// NAVBAR
+// Form style
+
+.button{
+  &:hover{
+    background: $green;
+    color: #FFF;
+    transition: .4s;
+  }
+
+  &:active{
+    border: 1px solid $green;
+  }
+
+  background: fade-out($green,1);
+  border: 1px solid $green;
+  font-weight: 800;
+  padding: 15px;
+  border-radius: 0px;
+
+  @extend .btn;
+}
+
+input[type=submit] {
+  &:hover{
+    background: $green;
+    color: #FFF;
+    transition: .4s;
+  }
+
+  &:active{
+    border: 1px solid $green;
+  }
+  background: fade-out($green,1);
+  border: 1px solid $green;
+  font-weight: 800;
+  padding: 15px;
+}
+
+input[type=text]{
+  &:focus {
+    color: #000000;
+    border: 1px solid $green
+  }
+  border-radius: 0px;
+  border: 1px solid $green;
+}
+
+input[type=email]{
+  &:focus {
+    color: #000000;
+    border: 1px solid $green
+  }
+  border-radius: 0px;
+  border: 1px solid $green;
+}
+
+
+input[type=password]{
+  &:focus {
+    color: #000000;
+    border: 1px solid $green
+  }
+  border-radius: 0px;
+  border: 1px solid $green;
+}
+
+textarea{
+  &:focus {
+    color: #000000;
+    border-radius: 0px;
+    border: 1px solid $green;
+  }
+  resize: vertical;
+  max-height: 300px;
+}
+
+#textarea-style{
+ border-radius: 0px;
+ border: 1px solid $green;
+}
+
+// -------
+
+// NAVBAR style
+
 .navbar-style{
   background-color: $black;
   font-family: 'Roboto Slab', serif;
   border-bottom: $black;
-  height: 60px;
+  padding-bottom: 5px;
 }
 
-.navbar-default .navbar-brand {
+.navbar-inverse .navbar-brand {
   &:hover{
-      color: $green;
-      transition: 0.4s;
+    color: $green;
+    transition: 0.4s;
   }
 
   &:focus{
@@ -45,31 +128,36 @@ $black: #363636;
   color: $grey;
 }
 
-.navbar-default .navbar-nav > li > a {
-  &:hover{
-    color: $green;
-    transition: 0.4s;
-  }
+.navbar-inverse .navbar-nav{
 
-  &:focus{
-    color: $green;
-  }
+  li > a {
+    &:hover{
+      color: $green;
+      transition: 0.4s;
+    }
 
-  margin-top:5px;
-  font-size: 16px;
-  color: $grey;
+    &:focus{
+      color: $green;
+    }
+
+    margin-top:5px;
+    font-size: 16px;
+    color: $grey;
+  }
 }
 
-//
-
 .navbar-text-login{
+  //padding-top: 19px;
   margin-top: 19px;
   font-size: 16px;
   color: $grey;
   text-indent:20px;
   font-style:italic;
 }
-// selsect background color
+
+//
+
+// select background color
 
 body *::-moz-selection {
   background: fade-out($green,.4);
@@ -85,7 +173,10 @@ body *::selection {
   background: fade-out($green,.4);
   color: white;
 }
+
 //
+
+//OTHER style
 
 body{
   background-color: #F2F2F2;
@@ -106,3 +197,5 @@ a{
 h1,h2,h3,h4,h5,h6{
   font-family: 'Roboto Slab', serif;
 }
+
+//

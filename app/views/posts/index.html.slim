@@ -1,8 +1,16 @@
 .container
   .row.col-sm-8
     - @posts.each do |post|
-      div#post-container
+      #post-container
         div
           h1 = link_to post.title, post_path(post), class: 'post-link'
-        div.text-padding
+        div
+          span.glyphicon.glyphicon-calendar
+          = post.created_at.strftime("%m.%d.%Y")   
+          span.glyphicon.glyphicon-user
+          = post.user.name
+        .body-post
           = post.body
+        div
+          = link_to 'Читати далі', post_path(post), class: 'button'
+

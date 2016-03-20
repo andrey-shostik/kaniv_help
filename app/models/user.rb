@@ -4,7 +4,10 @@ class User < ActiveRecord::Base
 
   has_many :posts
 
-  validates :password, presence: :true
-  validates :email, presence: :true, uniqueness: :true
-  validates :first_name, :last_name, presence: :true
+  validates :email, uniqueness: :true
+  validates :email, :password, :first_name, :last_name, presence: :true
+
+  def name
+     "#{last_name} #{first_name}"
+  end
 end

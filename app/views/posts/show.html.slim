@@ -1,1 +1,15 @@
+.container
+  .row.col-sm-8
+      div#post-container
+        div
+          h1 = @post.title
+        div
+          span.glyphicon.glyphicon-calendar
+          = @post.created_at.strftime("%m.%d.%Y")   
+          span.glyphicon.glyphicon-user
+          = @post.user.name
+        .body-post
+          = @post.body
+        div
+          = link_to 'Назад', root_path, class: 'button'
 

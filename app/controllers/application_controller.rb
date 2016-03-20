@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :require_user
 
   def current_user
-    @user ||= User.find_by(token: session[:current_user_id])
+    @current_user ||= User.find_by(token: session[:current_user_id])
   end
 
   def require_user

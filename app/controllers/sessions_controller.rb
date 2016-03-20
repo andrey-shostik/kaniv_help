@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
     else
       flash.now[:error] = 'Invlid email or password'
-      redirect_to :new
+      render :new
     end
   end
 
