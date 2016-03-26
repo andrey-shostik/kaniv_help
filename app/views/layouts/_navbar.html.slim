@@ -14,3 +14,4 @@
        li = link_to 'Вихід', session_path, method: :delete if current_user
        li = link_to 'Створити Пост', new_post_path if current_user
        li.navbar-text-login = current_user.first_name if current_user
+

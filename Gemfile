@@ -14,11 +14,13 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'has_secure_token'
 gem 'slim-rails'
-# gem 'kaminari', '~> 0.16.3'
+gem 'rubocop', require: false
+gem 'kaminari', '~> 0.16.3'
+gem 'uuid', '~> 2.3', '>= 2.3.8'
 
 group :development, :test do
   gem 'byebug'
-# gem 'factory_girl', '~> 4.5'
+  # gem 'factory_girl', '~> 4.5'
 end
 
 group :development do

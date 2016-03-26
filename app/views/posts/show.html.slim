@@ -1,15 +1,44 @@
 .container
   .row.col-sm-8
-      div#post-container
-        div
-          h1 = @post.title
-        div
-          span.glyphicon.glyphicon-calendar
-          = @post.created_at.strftime("%m.%d.%Y")   
-          span.glyphicon.glyphicon-user
-          = @post.user.name
-        .body-post
-          = @post.body
-        div
-          = link_to 'Назад', root_path, class: 'button'
+    #post-container
+      div
+        h1 = @post.title
+      div
+        span.glyphicon.glyphicon-calendar
+        = @post.created_at.strftime("%m.%d.%Y")
+        span.glyphicon.glyphicon-user
+        = @post.user.name
+      .body-post
+        = @post.body
+      .pad
+        = form_for  do |f|
+          .pad
+            = f.
+          .pad
+            = f.submit 'Підтвердити'
+      .pad
+        = link_to 'Назад', root_path, class: 'button'
+        = link_to 'Видалити', post_path(@post), method: :delete, class: 'button mg-left'
 
+      h2 Коментарії:
+      - @post.comments.reverse_each do |comment|
+        .pad
+          h4= comment.commenter
+        .pad
+          = comment.body
+      .big-pad
+        = form_for([@post, @post.comments.build]) do |f|
+          = f.label 'Ваш Коментарій'
+          .pad
+            = f.text_area :body, id: 'textarea-style'
+          .pad
+            = f.submit 'Новий Коментарій'
+  .row.col-sm-4
+    #vote-container
+      h3 Список Проголосувавших:
+      div
+        'Шостік Андрій 200 грн
+      div
+        'Катренко Олександр 50 грн
+      div
+        'Фурса Ігор 120 грн

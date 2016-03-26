@@ -1,6 +1,6 @@
 .container
   .row.col-sm-8
-    - @posts.each do |post|
+    - @posts.reverse_each do |post|
       #post-container
         div
           h1 = link_to post.title, post_path(post), class: 'post-link'
@@ -11,6 +11,6 @@
           = post.user.name
         .body-post
           = post.body
-        div
+        .pad
           = link_to 'Читати далі', post_path(post), class: 'button'
-
+    = paginate @posts

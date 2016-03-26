@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    @user = User.new(user_params)
+    @user.money = 100
     if @user.save
       session[:current_user_id] = @user.token
       redirect_to root_path

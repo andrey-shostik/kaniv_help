@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :show, :update, :destroy]
 
   def index
-    @posts = Post.all#.page(params[:page])
+    @posts = Post.all.page(params[:page])
      #@posts = current_user.posts
   end
 
@@ -19,11 +19,12 @@ class PostsController < ApplicationController
       redirect_to posts_path
     else
       render :new
-      flash.now[:error] = 'неуказаний  заголовок чи опис'
+      flash.now[:error] = 'неуказаний заголовок чи опис'
     end
   end
 
   def show
+    @money = current_user.money
     @created_time = @post.created_at.strftime("%m.%d.%Y")
   end
 
@@ -39,8 +40,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
-    redirect_to posts_path
+ #   binding.pry
+    @post.delete
+    redirect_to root_path
   end
 
   private
