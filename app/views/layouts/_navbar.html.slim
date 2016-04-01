@@ -12,6 +12,8 @@
        li = link_to 'Вхід', new_session_path unless current_user
        li = link_to 'Реєстрація', new_user_path unless current_user
        li = link_to 'Вихід', session_path, method: :delete if current_user
-       li = link_to 'Створити Пост', new_post_path if current_user
+       li = link_to 'Всі проблеми', root_path if current_user
+       li = link_to 'Додати Проблему', new_post_path if current_user
+       li = link_to 'Профіль', user_path if current_user
        li.navbar-text-login = current_user.first_name if current_user
 

@@ -2,12 +2,20 @@ class User < ActiveRecord::Base
   has_secure_token
   has_secure_password
 
-  has_many :posts
+  before_save { self.email = email.downcase }
 
-  validates :email, uniqueness: :true
-  validates :email, :password, :first_name, :last_name, presence: :true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  validates :email, presence: true,
+                    format: { with: VALID_EMAIL_REGEX },
+                    uniqueness: { case_sensitive: false }
+  validates :password, :first_name, :last_name, :surname, presence: :true
+  validates :first_name, :last_name, :surname, length: { minimum: 3 }
+
+  has_many :posts
+  has_many :votes
 
   def name
-     "#{last_name} #{first_name}"
+    "#{last_name} #{first_name} #{surname}"
   end
 end

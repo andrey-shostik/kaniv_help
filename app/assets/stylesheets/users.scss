@@ -1,4 +1,15 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$grey:  #DADADA;
+
 .header{margin-bottom: 40px;}
+
+#post-container{
+  background: white;
+  border: 1px solid $grey;
+  border-radius: 3px;
+  margin: 20px;
+  padding: 30px 30px;
+  word-wrap: break-word;
+}

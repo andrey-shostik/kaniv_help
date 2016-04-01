@@ -19,11 +19,11 @@ class PostsController < ApplicationController
       redirect_to posts_path
     else
       render :new
-      flash.now[:error] = 'неуказаний заголовок чи опис'
     end
   end
 
   def show
+    @votes = @post.votes
     @money = current_user.money
     @created_time = @post.created_at.strftime("%m.%d.%Y")
   end

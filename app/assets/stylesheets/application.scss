@@ -57,6 +57,7 @@ input[type=submit] {
   border: 1px solid $green;
   font-weight: 800;
   padding: 15px;
+  color: $green;
 }
 
 input[type=text]{
@@ -86,6 +87,17 @@ input[type=password]{
   border-radius: 0px;
   border: 1px solid $green;
 }
+
+
+input[type=number]{
+  &:focus {
+    color: #000000;
+    border: 1px solid $green
+  }
+  border-radius: 0px;
+  border: 1px solid $green;
+}
+
 
 textarea{
   &:focus {
@@ -198,9 +210,6 @@ h1,h2,h3,h4,h5,h6{
   font-family: 'Roboto Slab', serif;
 }
 
-.big-pad{
-  padding: 15px 0px;
-}
 
 .pad{
   padding: 5px 0px;

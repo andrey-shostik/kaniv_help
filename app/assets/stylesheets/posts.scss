@@ -11,8 +11,11 @@ $green: #689F38;
   border: 1px solid $grey;
   border-radius: 3px;
   margin: 20px;
-  padding: 30px 30px;
   word-wrap: break-word;
+}
+
+#glyphicon{
+  padding-top:10px;
 }
 
 #vote-container{
@@ -20,7 +23,7 @@ $green: #689F38;
   border: 1px solid $grey;
   border-radius: 3px;
   margin: 20px;
-  padding: 30px 30px;
+  padding: 10px 30px;
   word-wrap: break-word;
 }
 
@@ -46,4 +49,12 @@ $green: #689F38;
 
 ul{
   padding-left: 0px;
+}
+
+.comment-pad{
+  padding: 40px 0px;
+}
+
+.big-pad{
+  padding: 20px 0px;
 }

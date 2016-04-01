@@ -11,34 +11,23 @@
       .body-post
         = @post.body
       .pad
-        = form_for  do |f|
-          .pad
-            = f.
-          .pad
-            = f.submit 'Підтвердити'
-      .pad
         = link_to 'Назад', root_path, class: 'button'
         = link_to 'Видалити', post_path(@post), method: :delete, class: 'button mg-left'
-
-      h2 Коментарії:
-      - @post.comments.reverse_each do |comment|
-        .pad
-          h4= comment.commenter
-        .pad
-          = comment.body
-      .big-pad
-        = form_for([@post, @post.comments.build]) do |f|
-          = f.label 'Ваш Коментарій'
+      = render 'posts/votes_by_user'
+      .comment-pad
+        h2 Коментарії:
+        - @post.comments.reverse_each do |comment|
           .pad
-            = f.text_area :body, id: 'textarea-style'
+            h4= comment.commenter
           .pad
-            = f.submit 'Новий Коментарій'
+            = comment.body
+        .big-pad
+          = form_for([@post, @post.comments.build]) do |f|
+            = f.label 'Ваш Коментарій'
+            .pad
+              = f.text_area :body, id: 'textarea-style'
+            .pad
+              = f.submit 'Новий Коментарій'
   .row.col-sm-4
     #vote-container
-      h3 Список Проголосувавших:
-      div
-        'Шостік Андрій 200 грн
-      div
-        'Катренко Олександр 50 грн
-      div
-        'Фурса Ігор 120 грн
+      = render 'votes/index', votes: @votes
