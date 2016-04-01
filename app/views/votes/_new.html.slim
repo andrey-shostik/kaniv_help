@@ -1,0 +1,7 @@
+.pad
+  h3 Введіть кількість грошей якими будете голосувати
+  = form_for([post, post.votes.build ]) do |f|
+    .pad
+      = f.number_field :money, min: '10', placeholder: 'введіть гроші'
+    .pad
+      = f.submit 'Підтвердити', data: { confirm: 'Ви впевнені ?' }

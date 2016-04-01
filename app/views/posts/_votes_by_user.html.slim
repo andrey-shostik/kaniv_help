@@ -1,0 +1,10 @@
+- if @votes.count > 0
+  - if @votes.find_by(user_id: current_user) != nil
+    - if @votes.find_by(user_id: current_user).user_id == current_user.id
+      dsfsda
+    - else
+      = render 'votes/new', post: @post
+  - else
+    = render 'votes/new', post: @post
+- else
+  = render 'votes/new', post: @post

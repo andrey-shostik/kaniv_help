@@ -1,0 +1,5 @@
+= form_for([@post, @post.votes.build ]) do |f|
+  .pad
+    = f.number_field :money
+  .pad
+    = f.submit 'Підтвердити'
