@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.money = 100
+    @user.user_key = (100000..999999).to_a.sample
     if @user.save
       session[:current_user_id] = @user.token
       redirect_to root_path

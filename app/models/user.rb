@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :password, :first_name, :last_name, :surname, presence: :true
   validates :first_name, :last_name, :surname, length: { minimum: 3 }
+  validates :user_key, presence: :true, uniqueness: :true, length: { is: 6 }
 
   has_many :posts
   has_many :votes

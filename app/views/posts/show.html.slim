@@ -13,6 +13,7 @@
       .pad
         = link_to 'Назад', root_path, class: 'button'
         = link_to 'Видалити', post_path(@post), method: :delete, class: 'button mg-left'
+        = link_to 'Перейти до тендеру', new_post_tender_path(@post), class: 'button mg-left'
       = render 'posts/votes_by_user'
       .comment-pad
         h2 Коментарії:
@@ -28,6 +29,7 @@
               = f.text_area :body, id: 'textarea-style'
             .pad
               = f.submit 'Новий Коментарій'
-  .row.col-sm-4
-    #vote-container
-      = render 'votes/index', votes: @votes
+  - if @votes.count > 0
+    .row.col-sm-4
+      #vote-container
+        = render 'votes/index', votes: @votes

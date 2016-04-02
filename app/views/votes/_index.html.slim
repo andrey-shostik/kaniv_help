@@ -6,8 +6,9 @@ h3 Список Проголосувавших:
       - if vote.name != nil
         = "#{vote.money} грн"
         br
-      span.glyphicon.glyphicon-calendar#glyphicon
-      = vote.created_at.strftime("%m.%d.%Y - %H:%M")
+        span.glyphicon.glyphicon-calendar#glyphicon
+        = vote.created_at.strftime("%m.%d.%Y - %H:%M")
     div
       - if vote.user_id == current_user.id
         = link_to 'Скасувати', post_vote_path(@post, vote.id), method: :delete
+        .pad

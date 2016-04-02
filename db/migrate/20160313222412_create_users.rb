@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest
       t.string :token
       t.integer :money
+      t.integer :user_key
 
       t.timestamps null: false
     end

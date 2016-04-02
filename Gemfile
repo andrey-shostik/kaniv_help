@@ -16,19 +16,25 @@ gem 'has_secure_token'
 gem 'slim-rails'
 gem 'rubocop', require: false
 gem 'kaminari', '~> 0.16.3'
-gem 'uuid', '~> 2.3', '>= 2.3.8'
+gem 'rubysl-securerandom', '~> 2.0'
 
 group :development, :test do
   gem 'byebug'
-  # gem 'factory_girl', '~> 4.5'
+  gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
+  gem 'pry-rails'
+  gem 'factory_girl_rails'
 end
 
 group :development do
   gem 'sqlite3'
   gem 'web-console', '~> 2.0'
   gem 'spring'
-  gem 'pry-rails', '~> 0.3.4'
   gem 'awesome_print', '~> 1.6', '>= 1.6.1'
+end
+
+group :test do
+  gem 'faker', '~> 1.6', '>= 1.6.3'
+  gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
 end
 
 group :production do
