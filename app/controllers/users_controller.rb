@@ -12,6 +12,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.money = 100
+    # @user.user_key = 272537
+    # while User.find_by(user_key: @user.user_key) == true
+    #   @user.user_key = (100000..999999).to_a.sample
+    # end
     @user.user_key = (100000..999999).to_a.sample
     if @user.save
       session[:current_user_id] = @user.token
@@ -22,11 +26,10 @@ class UsersController < ApplicationController
     end
   end
 
-
   private
+
   def user_params
     params.require(:user).permit(:email, :password, :first_name, :last_name,
                                  :surname, :password_confirmation )
   end
-
 end

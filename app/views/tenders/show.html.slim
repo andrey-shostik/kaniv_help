@@ -1,0 +1,19 @@
+.container
+  .row.col-sm-8
+    #post-container
+      div
+        h1 = @post.title
+      div
+        span.glyphicon.glyphicon-calendar
+        = @post.created_at.strftime("%m.%d.%Y")
+        span.glyphicon.glyphicon-user
+        = @post.user.name
+      .body-post
+        = @post.body
+      .pad
+        = link_to 'Назад', post_path(@post), class: 'button'
+      = render 'tenders/tenders_by_user'
+  - if @votes.count > 0
+    .row.col-sm-4
+      #vote-container
+        = render 'tender_votes/index', votes: @votes

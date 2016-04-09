@@ -1,0 +1,14 @@
+h3 Список Бажавших на виконання роботи:
+- if votes.count != 0
+  - votes.reverse_each do |vote|
+    .pad
+      = "#{vote.name} "
+      - if vote.name != nil
+        = "#{vote.money} грн"
+        br
+        span.glyphicon.glyphicon-calendar#glyphicon
+        = vote.created_at.strftime("%m.%d.%Y - %H:%M")
+    div
+      - if vote.user_id == current_user.id
+        = link_to 'Скасувати', post_tender_tender_vote_path(@post, vote.id), method: :delete
+        .pad

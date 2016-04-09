@@ -1,6 +1,6 @@
 .pad
-  h3 Введіть кількість грошей якими будете голосувати
-  = form_for([post, post.votes.build ]) do |f|
+  h3 Введіть кількість грошей за які ви готові вирішити цю проблему
+  = form_for([tender, tender.tender_votes.build ]) do |f|
     .pad
       = f.number_field :money, min: '10', placeholder: 'Введіть суму'
     .pad

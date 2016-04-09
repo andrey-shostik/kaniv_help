@@ -3,18 +3,18 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.page(params[:page])
-     #@posts = current_user.posts
+    # @posts = current_user.posts
   end
 
   def new
     @post = Post.new
-    #@post = current_user.posts.new
+    # @post = current_user.posts.new
   end
 
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-    #@post = current_user.posts.build(post_params)
+    # @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to posts_path
     else
@@ -40,18 +40,19 @@ class PostsController < ApplicationController
   end
 
   def destroy
- #   binding.pry
-    @post.delete
+    # binding.pry
+    @post.delete && @post.tender.delete
     redirect_to root_path
   end
 
   private
+
     def post_params
       params.require(:post).permit(:title, :body)
     end
 
     def set_post
       @post = Post.find(params[:id])
-       #@post = current_user.posts.find(params[:id])
+      # @post = current_user.posts.find(params[:id])
     end
 end

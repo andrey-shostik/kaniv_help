@@ -9,4 +9,10 @@ class Post < ActiveRecord::Base
 
   delegate :name, to: :user
   paginates_per 3
+
+  after_save :create_tender
+
+  def create_tender
+    create_tender!
+  end
 end
